@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: dzmovie
+    runtime: python
+    plan: free
+    pythonVersion: 3.11.10
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: MOVIEBOX_API_HOST_V2
+        value: h5-api.aoneroom.com
+      - key: MOVIEBOX_API_HOST_V3
+        value: h5-api.aoneroom.com
